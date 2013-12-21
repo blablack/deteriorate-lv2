@@ -14,9 +14,9 @@ typedef struct {
 } peg_data_t;
 #endif
 
-/* <http://github.com/blablack/deteriorate.lv2/granulator_stereo> */
+/* <http://github.com/blablack/deteriorate-lv2/granulator_stereo> */
 
-static const char p_uri[] = "http://github.com/blablack/deteriorate.lv2/granulator_stereo";
+static const char p_uri[] = "http://github.com/blablack/deteriorate-lv2/granulator_stereo";
 
 enum p_port_enum {
   p_inputL,

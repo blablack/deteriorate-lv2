@@ -1,7 +1,7 @@
-deteriorate.lv2
+deteriorate-lv2
 =============
 
-deteriorate.lv2 is a set of plugins to destroy and deteriorate the sound quality of a live input.
+deteriorate-lv2 is a set of plugins to destroy and deteriorate the sound quality of a live input.
 The set contains:
 - DownSampler
 - Granulator
@@ -30,7 +30,7 @@ More information about Ingen here: [http://drobilla.net/software/ingen/](http://
 BUG REPORTING
 -------------
 Please use the issue tracker on github to report bugs:
-[http://github.com/blablack/deteriorate.lv2/issues](http://github.com/blablack/deteriorate.lv2/issues)
+[http://github.com/blablack/deteriorate-lv2/issues](http://github.com/blablack/deteriorate-lv2/issues)
 
 
 

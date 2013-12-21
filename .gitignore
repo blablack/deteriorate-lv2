@@ -1,7 +1,7 @@
 # Files
 .lock-waf_linux2_build
-deteriorate.lv2.cbp
-deteriorate.lv2.layout
+deteriorate-lv2.cbp
+deteriorate-lv2.layout
 debug_ingen.sh
 debug_jalv.sh
 

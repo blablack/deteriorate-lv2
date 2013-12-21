@@ -4,7 +4,7 @@
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix uiext: 	<http://lv2plug.in/ns/extensions/ui#> .
 
-<http://github.com/blablack/deteriorate.lv2/>
+<http://github.com/blablack/deteriorate-lv2/>
 	a doap:Project ;
 	lv2:symbol "deteriorate" ;
 	doap:name "Deteriorate LV2" ;
@@ -16,22 +16,22 @@
 		foaf:mbox <mailto:blablack@gmail.com>
 	] .
 
-<http://github.com/blablack/deteriorate.lv2/downsampler_mono>
+<http://github.com/blablack/deteriorate-lv2/downsampler_mono>
 	a lv2:Plugin ;
 	lv2:binary <downsampler_mono.so>  ;
 	rdfs:seeAlso <downsampler_mono.ttl> .
 
-<http://github.com/blablack/deteriorate.lv2/downsampler_stereo>
+<http://github.com/blablack/deteriorate-lv2/downsampler_stereo>
 	a lv2:Plugin ;
 	lv2:binary <downsampler_stereo.so>  ;
 	rdfs:seeAlso <downsampler_stereo.ttl> .
 
-<http://github.com/blablack/deteriorate.lv2/granulator_mono>
+<http://github.com/blablack/deteriorate-lv2/granulator_mono>
 	a lv2:Plugin ;
 	lv2:binary <granulator_mono.so>  ;
 	rdfs:seeAlso <granulator_mono.ttl> .
 
-<http://github.com/blablack/deteriorate.lv2/granulator_stereo>
+<http://github.com/blablack/deteriorate-lv2/granulator_stereo>
 	a lv2:Plugin ;
 	lv2:binary <granulator_stereo.so>  ;
 	rdfs:seeAlso <granulator_stereo.ttl> .

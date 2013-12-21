@@ -125,4 +125,4 @@ void GranulatorMonoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32_t
 	}
 }
 
-static int _ = GranulatorMonoGUI::register_class("http://github.com/blablack/deteriorate.lv2/granulator_mono/gui");
+static int _ = GranulatorMonoGUI::register_class("http://github.com/blablack/deteriorate-lv2/granulator_mono/gui");

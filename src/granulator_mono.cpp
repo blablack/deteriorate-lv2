@@ -146,5 +146,5 @@ void GranulatorMono::run(uint32_t nframes)
 	}
 }
 
-static int _ = GranulatorMono::register_class("http://github.com/blablack/deteriorate.lv2/granulator_mono");
+static int _ = GranulatorMono::register_class("http://github.com/blablack/deteriorate-lv2/granulator_mono");
 

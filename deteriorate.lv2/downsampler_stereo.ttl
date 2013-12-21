@@ -6,17 +6,17 @@
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
 @prefix guiext: <http://lv2plug.in/ns/extensions/ui#> .
 
-<http://github.com/blablack/deteriorate.lv2/downsampler_stereo/gui>
+<http://github.com/blablack/deteriorate-lv2/downsampler_stereo/gui>
   	a guiext:GtkUI ;
   	guiext:binary <downsampler_stereo_gui.so> .
 
-<http://github.com/blablack/deteriorate.lv2/downsampler_stereo>
+<http://github.com/blablack/deteriorate-lv2/downsampler_stereo>
 	a lv2:Plugin, lv2:FilterPlugin ;
-	lv2:project <http://github.com/blablack/deteriorate.lv2/> ;
+	lv2:project <http://github.com/blablack/deteriorate-lv2/> ;
 	doap:name "Downsampler - Stereo" ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	ll:pegName "p" ;
-	guiext:ui <http://github.com/blablack/deteriorate.lv2/downsampler_stereo/gui> ;
+	guiext:ui <http://github.com/blablack/deteriorate-lv2/downsampler_stereo/gui> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
 	lv2:port [
 		a lv2:InputPort, lv2:ControlPort ;

@@ -157,5 +157,5 @@ void GranulatorStereo::run(uint32_t nframes)
 	}
 }
 
-static int _ = GranulatorStereo::register_class("http://github.com/blablack/deteriorate.lv2/granulator_stereo");
+static int _ = GranulatorStereo::register_class("http://github.com/blablack/deteriorate-lv2/granulator_stereo");
 

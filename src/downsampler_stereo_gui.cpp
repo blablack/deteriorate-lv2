@@ -36,4 +36,4 @@ void DownsamplerStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint3
 	}
 }
 
-static int _ = DownsamplerStereoGUI::register_class("http://github.com/blablack/deteriorate.lv2/downsampler_stereo/gui");
+static int _ = DownsamplerStereoGUI::register_class("http://github.com/blablack/deteriorate-lv2/downsampler_stereo/gui");

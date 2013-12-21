@@ -36,5 +36,5 @@ void DownsamplerStereo::run(uint32_t nframes)
 	}
 }
 
-static int _ = DownsamplerStereo::register_class("http://github.com/blablack/deteriorate.lv2/downsampler_stereo");
+static int _ = DownsamplerStereo::register_class("http://github.com/blablack/deteriorate-lv2/downsampler_stereo");
 

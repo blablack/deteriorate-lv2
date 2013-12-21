@@ -33,5 +33,5 @@ void DownsamplerMono::run(uint32_t nframes)
 	}
 }
 
-static int _ = DownsamplerMono::register_class("http://github.com/blablack/deteriorate.lv2/downsampler_mono");
+static int _ = DownsamplerMono::register_class("http://github.com/blablack/deteriorate-lv2/downsampler_mono");
 

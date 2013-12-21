@@ -125,4 +125,4 @@ void GranulatorStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32
 	}
 }
 
-static int _ = GranulatorStereoGUI::register_class("http://github.com/blablack/deteriorate.lv2/granulator_stereo/gui");
+static int _ = GranulatorStereoGUI::register_class("http://github.com/blablack/deteriorate-lv2/granulator_stereo/gui");
