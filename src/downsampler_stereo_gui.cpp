@@ -15,8 +15,8 @@ DownsamplerStereoGUI::DownsamplerStereoGUI(const std::string& URI)
 	color->set_rgb(7710, 8738, 9252);
 	p_background->modify_bg(Gtk::STATE_NORMAL, *color);
 
-	slot<void> p_slotRatio = compose(bind<0>(mem_fun(*this, &DownsamplerStereoGUI::write_control), p_ratio), mem_fun(*this,  &DownsamplerStereoGUI::get_ratio));
-	m_dialRatio = new LabeledDial("Ratio", p_slotRatio, p_ratio, 1, 10, NORMAL, 1, 1);
+	m_dialRatio = new LabeledDial("Ratio", p_ratio, 1, 10, NORMAL, 1, 1);
+	m_dialRatio->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &DownsamplerStereoGUI::write_control), p_ratio), mem_fun(*m_dialRatio,  &LabeledDial::get_value)));
 	p_background->add(*m_dialRatio);
 
 	p_background->set_size_request(100, 80);
@@ -26,14 +26,10 @@ DownsamplerStereoGUI::DownsamplerStereoGUI(const std::string& URI)
 	Gtk::manage(p_background);
 }
 
-float DownsamplerStereoGUI::get_ratio() { return m_dialRatio->get_value(); }
-
 void DownsamplerStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32_t format, const void* buffer)
 {
 	if (port == p_ratio)
-	{
 		m_dialRatio->set_value(*static_cast<const float*> (buffer));
-	}
 }
 
 static int _ = DownsamplerStereoGUI::register_class("http://github.com/blablack/deteriorate-lv2/downsampler_stereo/gui");

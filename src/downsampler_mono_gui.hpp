@@ -18,8 +18,6 @@ class DownsamplerMonoGUI: public UI<DownsamplerMonoGUI, GtkUI<true>>
 
 	protected:
 		LabeledDial* m_dialRatio;
-
-		float get_ratio();
 };
 
 #endif

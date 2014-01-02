@@ -24,14 +24,6 @@ class GranulatorStereoGUI: public UI<GranulatorStereoGUI, GtkUI<true>>
 		LabeledDial* m_dialGrainDensity;
 		LabeledDial* m_dialGrainSpread;
 		LabeledDial* m_dialOutputGain;
-
-		float get_inputGain();
-		float get_grainSize();
-		float get_attack();
-		float get_release();
-		float get_grainDensity();
-		float get_grainSpread();
-		float get_outputGain();
 };
 
 #endif
