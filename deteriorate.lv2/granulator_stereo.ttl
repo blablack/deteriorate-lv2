@@ -34,7 +34,7 @@
 		lv2:symbol "inputGain" ;
 		lv2:name "Input Gain" ;
 		lv2:default 1 ;
-		lv2:minimum -10 ;
+		lv2:minimum 0 ;
 		lv2:maximum 10 ;
 	] ,	[
 	  	a lv2:InputPort, lv2:ControlPort ;
@@ -82,7 +82,7 @@
 		lv2:symbol "outputGain" ;
 		lv2:name "Output Gain" ;
 		lv2:default 1 ;
-		lv2:minimum -10 ;
+		lv2:minimum 0 ;
 		lv2:maximum 10 ;
 	] ,	[
 		a lv2:OutputPort, lv2:AudioPort ;

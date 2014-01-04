@@ -17,11 +17,12 @@ DownsamplerStereoGUI::DownsamplerStereoGUI(const std::string& URI)
 
 	m_dialRatio = new LabeledDial("Ratio", p_ratio, 1, 10, NORMAL, 1, 1);
 	m_dialRatio->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &DownsamplerStereoGUI::write_control), p_ratio), mem_fun(*m_dialRatio,  &LabeledDial::get_value)));
-	p_background->add(*m_dialRatio);
+	Alignment* p_align = new Alignment(0.5, 0.5, 0, 0);
 
-	p_background->set_size_request(100, 80);
+    p_align->add(*m_dialRatio);
+	p_background->add(*p_align);
 
-	add(*p_background);
+    add(*p_background);
 
 	Gtk::manage(p_background);
 }

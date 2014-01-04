@@ -159,7 +159,7 @@ def build(bld):
                          '-DPLUGIN_URI_SUFFIX="%s"' % i,
                          '-DPLUGIN_HEADER="src/%s.hpp"' % i],
                         ['LV2', 'LVTK_PLUGIN', 'LVTK_GTKGUI', 'GTKMM', 'GTK2', 'CAIRO'],
-                        ['src/dial.cpp', 'src/labeleddial.cpp'])
+                        ['src/dial.cpp', 'src/labeleddial.cpp', 'src/my_box.cpp'])
 
 
 

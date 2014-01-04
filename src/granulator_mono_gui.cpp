@@ -7,6 +7,7 @@
 #include "granulator_mono_gui.hpp"
 #include "granulator_mono.hpp"
 #include "dial.hpp"
+#include "my_box.hpp"
 
 GranulatorMonoGUI::GranulatorMonoGUI(const std::string& URI)
 {
@@ -16,70 +17,53 @@ GranulatorMonoGUI::GranulatorMonoGUI(const std::string& URI)
     p_background->modify_bg(Gtk::STATE_NORMAL, *color);
 
 
-
-    VBox *p_mainWidget = manage(new VBox(false, 5));
-
+    VBox *p_mainWidget = manage(new VBox(false));
 
 
-    Frame *p_gainFrame = manage(new Frame("Gain"));
-    //p_gainFrame->set_shadow_type(Gtk::SHADOW_NONE);
-    HBox *p_gainBox = manage(new HBox(true));
+    MyBox *p_gainFrame = manage (new MyBox("Gain", Gtk::Orientation::ORIENTATION_HORIZONTAL));
 
-    m_dialInputGain = new LabeledDial("Input Gain", p_inputGain, -10, 10, NORMAL, 0.01, 2);
+    m_dialInputGain = new LabeledDial("Input", p_inputGain, 0, 10, NORMAL, 0.01, 2);
     m_dialInputGain->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_inputGain), mem_fun(*m_dialInputGain, &LabeledDial::get_value)));
-    p_gainBox->pack_start(*m_dialInputGain);
+    p_gainFrame->pack_start(*m_dialInputGain);
 
-    m_dialOutputGain = new LabeledDial("Output Gain", p_outputGain, -10, 10, NORMAL, 0.01, 2);
+    m_dialOutputGain = new LabeledDial("Output", p_outputGain, 0, 10, NORMAL, 0.01, 2);
     m_dialOutputGain->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_outputGain), mem_fun(*m_dialOutputGain, &LabeledDial::get_value)));
-    p_gainBox->pack_start(*m_dialOutputGain);
+    p_gainFrame->pack_start(*m_dialOutputGain);
 
-    p_gainFrame->add(*p_gainBox);
     p_mainWidget->pack_start(*p_gainFrame);
 
 
-
-    Frame *p_grainFrame = manage(new Frame("Grain"));
-    //p_gainFrame->set_shadow_type(Gtk::SHADOW_NONE);
-    HBox *p_grainBox = manage(new HBox(true));
+    MyBox *p_grainFrame = manage(new MyBox("Grain", Gtk::Orientation::ORIENTATION_HORIZONTAL));
 
     m_dialGrainSize = new LabeledDial("Grain Size (ms)", p_grainSize, 6, 10000, LOG, 1, 0);
     m_dialGrainSize->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_grainSize), mem_fun(*m_dialGrainSize, &LabeledDial::get_value)));
-    p_grainBox->pack_start(*m_dialGrainSize);
+    p_grainFrame->pack_start(*m_dialGrainSize);
 
     m_dialAttack = new LabeledDial("Attack (ms)", p_attack, 3, 100, NORMAL, 1, 0);
     m_dialAttack->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_attack), mem_fun(*m_dialAttack, &LabeledDial::get_value)));
-    p_grainBox->pack_start(*m_dialAttack);
+    p_grainFrame->pack_start(*m_dialAttack);
 
     m_dialRelease = new LabeledDial("Release (ms)", p_release, 3, 100, NORMAL, 1, 0);
     m_dialRelease->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_release), mem_fun(*m_dialRelease, &LabeledDial::get_value)));
-    p_grainBox->pack_start(*m_dialRelease);
+    p_grainFrame->pack_start(*m_dialRelease);
 
-    p_grainFrame->add(*p_grainBox);
     p_mainWidget->pack_start(*p_grainFrame);
 
 
-
-    Frame *p_textureFrame = manage(new Frame("Texture"));
-    //p_gainFrame->set_shadow_type(Gtk::SHADOW_NONE);
-    HBox *p_textureBox = manage(new HBox(true));
+    MyBox *p_textureFrame = manage(new MyBox("Texture", Gtk::Orientation::ORIENTATION_HORIZONTAL));
 
     m_dialGrainDensity = new LabeledDial("Grain Spacing (ms)", p_grainDensity, 1, 10000, LOG, 1, 0);
     m_dialGrainDensity->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_grainDensity), mem_fun(*m_dialGrainDensity, &LabeledDial::get_value)));
-    p_textureBox->pack_start(*m_dialGrainDensity);
+    p_textureFrame->pack_start(*m_dialGrainDensity);
 
     m_dialGrainSpread = new LabeledDial("Grain Spread", p_grainSpread, 2, 10000, LOG, 1, 0);
     m_dialGrainSpread->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_grainSpread), mem_fun(*m_dialGrainSpread,  &LabeledDial::get_value)));
-    p_textureBox->pack_start(*m_dialGrainSpread);
+    p_textureFrame->pack_start(*m_dialGrainSpread);
 
-    p_textureFrame->add(*p_textureBox);
     p_mainWidget->pack_start(*p_textureFrame);
 
 
-
     p_background->add(*p_mainWidget);
-
-    p_background->set_size_request(200, 320);
-
     add(*p_background);
 
     Gtk::manage(p_background);
