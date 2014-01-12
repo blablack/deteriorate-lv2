@@ -7,7 +7,7 @@ from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
 APPNAME = 'deteriorate-lv2'
-VERSION = '1.0.1'
+VERSION = '1.0.2'
 
 # Mandatory variables
 top = '.'

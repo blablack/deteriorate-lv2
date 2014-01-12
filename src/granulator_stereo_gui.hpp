@@ -17,6 +17,7 @@ class GranulatorStereoGUI: public UI<GranulatorStereoGUI, GtkUI<true>>
 		void port_event(uint32_t port, uint32_t buffer_size, uint32_t format, const void* buffer);
 
 	protected:
+        Gtk::CheckButton* m_checkBypass;
 		LabeledDial* m_dialInputGain;
 		LabeledDial* m_dialGrainSize;
 		LabeledDial* m_dialAttack;

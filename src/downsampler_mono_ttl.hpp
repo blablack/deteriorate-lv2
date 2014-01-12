@@ -21,6 +21,7 @@ static const char p_uri[] = "http://github.com/blablack/deteriorate-lv2/downsamp
 enum p_port_enum {
   p_ratio,
   p_input,
+  p_bypass,
   p_output,
   p_n_ports
 };
@@ -28,6 +29,7 @@ enum p_port_enum {
 static const peg_data_t p_ports[] = {
   { 1, 10, 1, 0, 0, 0 }, 
   { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
+  { 0, 1, 0, 1, 0, 0 }, 
   { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
 };
 

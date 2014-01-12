@@ -10,27 +10,30 @@
 using namespace lvtk;
 
 DownsamplerMono::DownsamplerMono(double rate)
-:Plugin<DownsamplerMono>(p_n_ports)
- {
-	ratio = 1;
-	p_loop = 0;
-	p_lastInput = 0;
- }
+    :Plugin<DownsamplerMono>(p_n_ports)
+{
+    ratio = 1;
+    p_loop = 0;
+    p_lastInput = 0;
+}
 
 void DownsamplerMono::run(uint32_t nframes)
 {
-	ratio = *p(p_ratio);
-	unsigned int l2;
-	for (l2 = 0; l2 < nframes; l2++)
-	{
-		p_loop++;
-		if(p_loop >= ratio)
-		{
-			p_loop = 0;
-			p_lastInput = p(p_input)[l2];
-		}
-		p(p_output)[l2] = p_lastInput;
-	}
+    ratio = *p(p_ratio);
+    unsigned int l2;
+    for (l2 = 0; l2 < nframes; l2++)
+    {
+        p_loop++;
+        if(p_loop >= ratio)
+        {
+            p_loop = 0;
+            p_lastInput = p(p_input)[l2];
+        }
+        if(*p(p_bypass) < 0.5)
+            p(p_output)[l2] = p_lastInput;
+        else
+            p(p_output)[l2] = p(p_input)[l2];
+    }
 }
 
 static int _ = DownsamplerMono::register_class("http://github.com/blablack/deteriorate-lv2/downsampler_mono");

@@ -11,18 +11,25 @@
 
 GranulatorStereoGUI::GranulatorStereoGUI(const std::string& URI)
 {
-	EventBox *p_background = manage (new EventBox());
-	Gdk::Color* color = new  Gdk::Color();
-	color->set_rgb(7710, 8738, 9252);
-	p_background->modify_bg(Gtk::STATE_NORMAL, *color);
+    EventBox *p_background = manage (new EventBox());
+    Gdk::Color* color = new  Gdk::Color();
+    color->set_rgb(7710, 8738, 9252);
+    p_background->modify_bg(Gtk::STATE_NORMAL, *color);
 
 
     VBox *p_mainWidget = manage(new VBox(false));
 
 
+    Alignment* p_align = new Alignment(0.5, 0.5, 0, 0);
+    m_checkBypass = manage(new CheckButton("Bypass"));
+    m_checkBypass->signal_toggled().connect(compose(bind<0>(mem_fun(*this, &GranulatorStereoGUI::write_control), p_bypass), mem_fun(*m_checkBypass, &CheckButton::get_active)));
+    p_align->add(*m_checkBypass);
+    p_mainWidget->pack_start(*p_align);
+
+
     MyBox *p_gainFrame = manage (new MyBox("Gain", Gtk::Orientation::ORIENTATION_HORIZONTAL));
 
-	m_dialInputGain = new LabeledDial("Input Gain", p_inputGain, 0, 10, NORMAL, 0.01, 2);
+    m_dialInputGain = new LabeledDial("Input Gain", p_inputGain, 0, 10, NORMAL, 0.01, 2);
     m_dialInputGain->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorStereoGUI::write_control), p_inputGain), mem_fun(*m_dialInputGain, &LabeledDial::get_value)));
     p_gainFrame->pack_start(*m_dialInputGain);
 
@@ -61,18 +68,18 @@ GranulatorStereoGUI::GranulatorStereoGUI(const std::string& URI)
     m_dialGrainSpread->signal_value_changed().connect(compose(bind<0>(mem_fun(*this, &GranulatorStereoGUI::write_control), p_grainSpread), mem_fun(*m_dialGrainSpread,  &LabeledDial::get_value)));
     p_textureFrame->pack_start(*m_dialGrainSpread);
 
-	p_mainWidget->pack_start(*p_textureFrame);
+    p_mainWidget->pack_start(*p_textureFrame);
 
 
-	p_background->add(*p_mainWidget);
-	add(*p_background);
+    p_background->add(*p_mainWidget);
+    add(*p_background);
 
-	Gtk::manage(p_background);
+    Gtk::manage(p_background);
 }
 
 void GranulatorStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32_t format, const void* buffer)
 {
- switch(port)
+    switch(port)
     {
     case p_inputGain:
         m_dialInputGain->set_value(*static_cast<const float*> (buffer));
@@ -94,6 +101,9 @@ void GranulatorStereoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32
         break;
     case p_outputGain:
         m_dialOutputGain->set_value(*static_cast<const float*> (buffer));
+        break;
+    case p_bypass:
+        m_checkBypass->set_active(*static_cast<const float*> (buffer) == 1);
         break;
     }
 }

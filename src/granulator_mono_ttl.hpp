@@ -26,6 +26,7 @@ enum p_port_enum {
   p_release,
   p_grainDensity,
   p_grainSpread,
+  p_bypass,
   p_outputGain,
   p_output,
   p_n_ports
@@ -39,6 +40,7 @@ static const peg_data_t p_ports[] = {
   { 3, 100, 4, 0, 0, 0 }, 
   { 1, 10000, 10, 0, 0, 0 }, 
   { 2, 10000, 100, 0, 0, 0 }, 
+  { 0, 1, 0, 1, 0, 0 }, 
   { 0, 10, 1, 0, 0, 0 }, 
   { -3.40282e+38, 3.40282e+38, -3.40282e+38, 0, 0, 0 }, 
 };

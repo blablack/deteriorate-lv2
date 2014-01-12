@@ -12,12 +12,13 @@ using namespace Gtk;
 
 class DownsamplerStereoGUI: public UI<DownsamplerStereoGUI, GtkUI<true>>
 {
-	public:
-		DownsamplerStereoGUI(const std::string& URI);
-		void port_event(uint32_t port, uint32_t buffer_size, uint32_t format, const void* buffer);
+public:
+    DownsamplerStereoGUI(const std::string& URI);
+    void port_event(uint32_t port, uint32_t buffer_size, uint32_t format, const void* buffer);
 
-	protected:
-		LabeledDial* m_dialRatio;
+protected:
+    Gtk::CheckButton* m_checkBypass;
+    LabeledDial* m_dialRatio;
 };
 
 #endif

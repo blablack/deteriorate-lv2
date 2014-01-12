@@ -20,6 +20,13 @@ GranulatorMonoGUI::GranulatorMonoGUI(const std::string& URI)
     VBox *p_mainWidget = manage(new VBox(false));
 
 
+    Alignment* p_align = new Alignment(0.5, 0.5, 0, 0);
+    m_checkBypass = manage(new CheckButton("Bypass"));
+    m_checkBypass->signal_toggled().connect(compose(bind<0>(mem_fun(*this, &GranulatorMonoGUI::write_control), p_bypass), mem_fun(*m_checkBypass, &CheckButton::get_active)));
+    p_align->add(*m_checkBypass);
+    p_mainWidget->pack_start(*p_align);
+
+
     MyBox *p_gainFrame = manage (new MyBox("Gain", Gtk::Orientation::ORIENTATION_HORIZONTAL));
 
     m_dialInputGain = new LabeledDial("Input", p_inputGain, 0, 10, NORMAL, 0.01, 2);
@@ -93,6 +100,9 @@ void GranulatorMonoGUI::port_event(uint32_t port, uint32_t buffer_size, uint32_t
         break;
     case p_outputGain:
         m_dialOutputGain->set_value(*static_cast<const float*> (buffer));
+        break;
+    case p_bypass:
+        m_checkBypass->set_active(*static_cast<const float*> (buffer) == 1);
         break;
     }
 }
