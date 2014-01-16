@@ -7,7 +7,7 @@ from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
 APPNAME = 'deteriorate-lv2'
-VERSION = '1.0.2'
+VERSION = '1.0.3'
 
 # Mandatory variables
 top = '.'
@@ -105,7 +105,7 @@ def build(bld):
         bld(rule   = do_copy,
             source = i,
             target = bld.path.get_bld().make_node('deteriorate.lv2/%s' % i),
-            install_path = '${LV2DIR}/beatslash.lv2')
+            install_path = '${LV2DIR}/deteriorate.lv2')
 
 
 
