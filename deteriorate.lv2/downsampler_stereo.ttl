@@ -5,6 +5,7 @@
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ll: 	<http://ll-plugins.nongnu.org/lv2/namespace#> .
 @prefix guiext: <http://lv2plug.in/ns/extensions/ui#> .
+@prefix pprops: <http://lv2plug.in/ns/ext/port-props#> .
 
 <http://github.com/blablack/deteriorate-lv2/downsampler_stereo/gui>
   	a guiext:GtkUI ;
