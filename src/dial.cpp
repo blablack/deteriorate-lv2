@@ -101,6 +101,9 @@ bool Dial::on_expose_event(GdkEventExpose* event)
         const int width = allocation.get_width();
         const int height = allocation.get_height();
 
+        int xc = width/2;
+        int yc = height/2 + 3;
+
         float radius = 14;
 
         cr->set_line_cap(Cairo::LINE_CAP_ROUND);
@@ -218,6 +221,40 @@ double Dial::RoundValue(double Value)
     return floorf(Value * m_rounder + 0.5) / m_rounder;
 }
 
+double Dial::MultValue(double Value)
+{
+    if(Value <= 0.0078125)
+        return (0.0078125);
+    else if(Value <= 0.015625)
+        return (0.015625);
+    else if(Value <= 0.03125)
+        return (0.03125);
+    else if(Value <= 0.0625)
+        return (0.0625);
+    else if(Value <= 0.125)
+        return (0.125);
+    else if(Value <= 0.25)
+        return (0.25);
+    else if(Value <= 0.5)
+        return (0.5);
+    else if(Value <= 1)
+        return (1);
+    else if(Value <= 2)
+        return (2);
+    else if(Value <= 4)
+        return (4);
+    else if(Value <= 8)
+        return (8);
+    else if(Value <= 16)
+        return (16);
+    else if(Value <= 32)
+        return (32);
+    else if(Value <= 64)
+        return (64);
+    else if(Value > 64)
+        return (128);
+}
+
 bool Dial::onMouseScroll(GdkEventScroll * e)
 {
     if(m_enabled)
@@ -276,7 +313,7 @@ void Dial::ChangeValueUp()
         set_value(RoundValue(m_adj->get_value()+CalculateLogStep()));
         break;
     case MULTIPLIER:
-        set_value(RoundValue(m_adj->get_value()*2));
+        set_value(MultValue(m_adj->get_value()*2));
         break;
     }
 }
@@ -291,7 +328,7 @@ void Dial::ChangeValueDown()
         set_value(RoundValue(m_adj->get_value()-CalculateLogStep()));
         break;
     case MULTIPLIER:
-        set_value(RoundValue(m_adj->get_value()/2));
+        set_value(MultValue(m_adj->get_value()/2));
         break;
     }
 }
