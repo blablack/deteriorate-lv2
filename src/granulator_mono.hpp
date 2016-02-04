@@ -1,7 +1,7 @@
 #ifndef GRANULATOR_MONO_H
 #define GRANULATOR_MONO_H
 
-#include <lvtk-1/lvtk/plugin.hpp>
+#include <lvtk-2/lvtk/plugin.hpp>
 
 #include "granulator_mono_ttl.hpp"
 

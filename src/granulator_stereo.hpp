@@ -1,7 +1,7 @@
 #ifndef GRANULATOR_STEREO_H
 #define GRANULATOR_STEREO_H
 
-#include <lvtk-1/lvtk/plugin.hpp>
+#include <lvtk-2/lvtk/plugin.hpp>
 
 #include "granulator_stereo_ttl.hpp"
 
