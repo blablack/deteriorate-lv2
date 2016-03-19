@@ -7,7 +7,7 @@ from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
 APPNAME = 'deteriorate-lv2'
-VERSION = '1.0.4'
+VERSION = '1.0.5'
 
 # Mandatory variables
 top = '.'
@@ -17,6 +17,7 @@ out = 'build'
 def options(opt):
     autowaf.set_options(opt)
     opt.load('compiler_cxx')
+    opt.load('lv2')
 
 
 def configure(conf):
@@ -24,14 +25,15 @@ def configure(conf):
     autowaf.display_header('deteriorate-lv2 Configuration')
 
     conf.load('compiler_cxx')
+    conf.load('lv2')
 
     autowaf.check_pkg(conf, 'gtkmm-2.4',  uselib_store='GTKMM',atleast_version='2.24.0')
     autowaf.check_pkg(conf, 'gtk+-2.0', uselib_store='GTK2', atleast_version='2.24.0')
     autowaf.check_pkg(conf, 'cairo', uselib_store='CAIRO', atleast_version='1.0.0')
     autowaf.check_pkg(conf, 'lv2', uselib_store='LV2', atleast_version='1.2.0')
-    autowaf.check_pkg(conf, 'lvtk-plugin-1', uselib_store='LVTK_PLUGIN', atleast_version='1.1.1')
-    autowaf.check_pkg(conf, 'lvtk-ui-1', uselib_store='LVTK_UI', atleast_version='1.1.1')
-    autowaf.check_pkg(conf, 'lvtk-gtkui-1', uselib_store='LVTK_GTKGUI', atleast_version='1.1.1')
+    autowaf.check_pkg(conf, 'lvtk-plugin-2', uselib_store='LVTK_PLUGIN', atleast_version='2.0.0')
+    autowaf.check_pkg(conf, 'lvtk-ui-2', uselib_store='LVTK_UI', atleast_version='2.0.0')
+    autowaf.check_pkg(conf, 'lvtk-gtkui-2', uselib_store='LVTK_GTKGUI', atleast_version='2.0.0')
 
     check = 'Extended Initializer Lists'
     conf.check_cxx(msg         = check,
