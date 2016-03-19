@@ -102,11 +102,11 @@ def build(bld):
         return shutil.copy(src, tgt)
 
     for i in bld.path.ant_glob('deteriorate.lv2/*.ttl'):
-        bld(rule   = do_copy,
-            source = i,
-            target = bld.path.get_bld().make_node('deteriorate.lv2/%s' % i),
+        bld(features     = 'subst',
+            is_copy      = True,
+            source       = i,
+            target       = bld.path.get_bld().make_node('deteriorate.lv2/%s' % i),
             install_path = '${LV2DIR}/deteriorate.lv2')
-
 
 
 
