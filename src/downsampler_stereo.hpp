@@ -1,7 +1,7 @@
 #ifndef DOWNSAMPLER_STEREO_H
 #define DOWNSAMPLER_STEREO_H
 
-#include <lvtk-2/lvtk/plugin.hpp>
+#include <lvtk-1/lvtk/plugin.hpp>
 
 #include "downsampler_stereo_ttl.hpp"
 

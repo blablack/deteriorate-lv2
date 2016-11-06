@@ -1,7 +1,7 @@
 #include <gtkmm-2.4/gtkmm.h>
 
-#include <lvtk-2/lvtk/plugin.hpp>
-#include <lvtk-2/lvtk/gtkui.hpp>
+#include <lvtk-1/lvtk/plugin.hpp>
+#include <lvtk-1/lvtk/gtkui.hpp>
 
 #include "downsampler_mono_gui.hpp"
 #include "downsampler_mono.hpp"

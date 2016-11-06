@@ -1,8 +1,8 @@
 #ifndef DOWNSAMPLER_MONO_GUI_H
 #define DOWNSAMPLER_MONO_GUI_H
 
-#include <lvtk-2/lvtk/plugin.hpp>
-#include <lvtk-2/lvtk/gtkui.hpp>
+#include <lvtk-1/lvtk/plugin.hpp>
+#include <lvtk-1/lvtk/gtkui.hpp>
 
 #include "labeleddial.hpp"
 
