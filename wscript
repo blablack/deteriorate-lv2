@@ -103,14 +103,11 @@ def build(bld):
         tgt = task.outputs[0].abspath()
         return shutil.copy(src, tgt)
 
-    for i in bld.path.ant_glob('deteriorate.lv2/*.ttl'):
-        bld(features     = 'subst',
-            is_copy      = True,
-            source       = i,
-            target       = 'deteriorate.lv2/%s' % i.name,
-            install_path = '${LV2DIR}/deteriorate.lv2')
-
-
+    bld(features     = 'subst',
+        is_copy      = True,
+        source       = 'deteriorate.lv2/manifest.ttl',
+        target       = 'deteriorate.lv2/manifest.ttl',
+        install_path = '${LV2DIR}/deteriorate.lv2')
 
     plugins = '''
     downsampler_mono
